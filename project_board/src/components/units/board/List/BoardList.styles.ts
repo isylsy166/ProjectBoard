@@ -94,10 +94,6 @@ export const Button = styled.button`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-
-  :hover {
-    background-color: #f5f2fc;
-  }
 `;
 
 export const PencilIcon = styled.img``;

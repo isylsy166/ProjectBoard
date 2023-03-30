@@ -1,8 +1,7 @@
 import BoardWriteUI from "./BoardWrite.presenter";
-
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, MouseEvent } from "react";
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 import { IBoardWriteProps, IUpdateBoardInput } from "./BoardWrite.types";
 import {
@@ -10,6 +9,8 @@ import {
   IMutationCreateBoardArgs,
   IMutationUpdateBoardArgs,
 } from "../../../../commons/types/types";
+import { Modal } from "antd";
+import { Address } from "react-daum-postcode/lib/loadPostcode";
 
 export default function BoardWrite(props: IBoardWriteProps) {
   const router = useRouter();
@@ -27,6 +28,10 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [contentsError, setContentsError] = useState("");
 
   const [isActive, setIsActive] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [address, setAddress] = useState("");
+  const [zonecode, setZonecode] = useState("");
 
   // GraphQl
   const [createBoard] = useMutation<
@@ -93,6 +98,27 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }
 
+  // address
+
+  // SearchAddress
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const onClickSearchAddress = () => {
+    setIsModalOpen(true);
+  };
+
+  const onCompleteAddressSearch = (data: any) => {
+    console.log(data);
+    setAddress(data.address);
+    setZonecode(data.zonecode);
+    setIsModalOpen(false);
+  };
+
   // 등록하기 버튼
   const onClickSubmit = async () => {
     if (!writer) {
@@ -122,7 +148,10 @@ export default function BoardWrite(props: IBoardWriteProps) {
         });
         console.log("게시판 ID: " + result.data.createBoard._id);
         router.push(`/boards/${result.data.createBoard._id}`);
-        alert("게시글이 등록되었습니다.");
+
+        Modal.success({
+          content: "게시글 등록",
+        });
       } catch (error) {
         alert(error.message);
       }
@@ -159,19 +188,27 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
   return (
     <BoardWriteUI
-      // 내꺼
+      //
       writerError={writerError}
       contentsError={contentsError}
       titleError={titleError}
-      onChangeWriter={onChangeWriter}
       passwordError={passwordError}
+      //
+      onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeTitle={onChangeTitle}
       onChangeContents={onChangeContents}
       onClickSubmit={onClickSubmit}
       onClickEdit={onClickEdit}
-      isActive={isActive}
+      //
+      handleOk={handleOk}
+      handleCancel={handleCancel}
+      onClickSearchAddress={onClickSearchAddress}
+      onCompleteAddressSearch={onCompleteAddressSearch}
+      isModalOpen={isModalOpen}
       data={props.data}
+      address={address}
+      zonecode={zonecode}
       // 받아온거
       isEdit={props.isEdit}
     />

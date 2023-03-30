@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { Button, Modal } from "antd";
+import DaumPostcodeEmbed from "react-daum-postcode/lib/DaumPostcodeEmbed";
 
 // 감싸는애들
 export const Page = styled.div`
@@ -124,6 +126,7 @@ export const Content = styled.textarea`
 export const AddressWriter = styled.input`
   height: 30px;
   width: 50px;
+  margin-right: 10px;
 `;
 
 export const AddressButton = styled.button`
@@ -150,23 +153,23 @@ export const RadioButton = styled.input`
   cursor: pointer;
 `;
 
-export const SubmitButton = styled.button`
-  width: 140px;
-  height: 50px;
-  padding: 10px 25px;
-  border: 2px solid #000;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  transition: all 0.3s ease;
-  :hover {
-    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-      7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
-  }
+export const ButtonSB = styled(Button)`
+  width: 150px;
+  height: 45px;
+`;
+
+export const SearchAddressButton = styled(Button)`
+  color: white;
+  background-color: black;
+`;
+
+export const AddressModal = styled(Modal)``;
+
+export const AddressSearchInput = styled(DaumPostcodeEmbed)``;
+
+export const Address = styled.input`
+  height: 30px;
+  width: 98%;
 `;
 
 export const Error = styled.div`

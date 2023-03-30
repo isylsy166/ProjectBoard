@@ -1,13 +1,5 @@
-// import {
-//   Btn3span,
-//   Button3,
-// } from "@/src/buttons/Button01/animation_buttons.styles";
-// import * as S from "@/src/components/units/board/write/BoardWrite.styles";
 import * as S from "../write/BoardWrite.styles";
-import {
-  Btn3span,
-  Button3,
-} from "../../../../../src/buttons/Button01/animation_buttons.styles";
+
 import { IBoardWriteUIProps } from "./BoardWrite.types";
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
@@ -59,11 +51,30 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
         <S.SubWrapperRow>
           <S.InputWrapper2>
             <S.Text>주소</S.Text>
-            <S.AddressWriter placeholder="43341"></S.AddressWriter>
-            <S.AddressButton>주소 검색</S.AddressButton>
+            <S.AddressWriter
+              placeholder="43341"
+              value={props.zonecode}
+            ></S.AddressWriter>
+
+            <S.SearchAddressButton onClick={props.onClickSearchAddress}>
+              주소 검색
+            </S.SearchAddressButton>
+
+            {props.isModalOpen && (
+              <S.AddressModal
+                open={true}
+                onOk={props.handleOk}
+                onCancel={props.handleCancel}
+              >
+                <S.AddressSearchInput
+                  onComplete={props.onCompleteAddressSearch}
+                />
+              </S.AddressModal>
+            )}
+
             <S.AddressWrapper>
-              <S.Writer></S.Writer>
-              <S.Writer></S.Writer>
+              <S.Address value={props.address} />
+              <S.Address></S.Address>
             </S.AddressWrapper>
           </S.InputWrapper2>
         </S.SubWrapperRow>
@@ -100,12 +111,11 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
 
         <S.SubWrapperRow>
           <S.SubmitWrapper>
-            <Button3
+            <S.ButtonSB
               onClick={props.isEdit ? props.onClickEdit : props.onClickSubmit}
-              isActive={props.isEdit ? props.isActive : false}
             >
-              <Btn3span>{props.isEdit ? "수정하기" : "등록하기"}</Btn3span>
-            </Button3>
+              {props.isEdit ? "수정하기" : "등록하기"}
+            </S.ButtonSB>
           </S.SubmitWrapper>
         </S.SubWrapperRow>
       </S.Wrapper>
