@@ -20,18 +20,20 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
+  const [zonecode, setZonecode] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
 
   // Error
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
   const [contentsError, setContentsError] = useState("");
+  const [addressError, setAddressError] = useState("");
 
   const [isActive, setIsActive] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [address, setAddress] = useState("");
-  const [zonecode, setZonecode] = useState("");
 
   // GraphQl
   const [createBoard] = useMutation<
@@ -98,24 +100,29 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }
 
-  // address
-
-  // SearchAddress
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
-  const onClickSearchAddress = () => {
-    setIsModalOpen(true);
-  };
+  // input address
 
   const onCompleteAddressSearch = (data: any) => {
     console.log(data);
     setAddress(data.address);
     setZonecode(data.zonecode);
+    setIsModalOpen(false);
+  };
+
+  const onChangeAddressDetail = (event: ChangeEvent<HTMLInputElement>) => {
+    setAddressDetail(event.target.value);
+  };
+
+  // Address Modal
+
+  const onClickSearchAddress = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
     setIsModalOpen(false);
   };
 
@@ -133,6 +140,9 @@ export default function BoardWrite(props: IBoardWriteProps) {
     if (!contents) {
       setContentsError("내용을 입력해주세요.");
     }
+    if (!address) {
+      setAddressError("주소를 입력해주세요.");
+    }
     if (writer && password && title && contents) {
       try {
         const result = await createBoard({
@@ -143,6 +153,11 @@ export default function BoardWrite(props: IBoardWriteProps) {
               password,
               title,
               contents,
+              boardAddress: {
+                address,
+                zipcode: zonecode,
+                addressDetail,
+              },
             },
           },
         });
@@ -188,11 +203,13 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
   return (
     <BoardWriteUI
+      addressDetail={addressDetail}
       //
       writerError={writerError}
       contentsError={contentsError}
       titleError={titleError}
       passwordError={passwordError}
+      addressError={addressError}
       //
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
@@ -201,6 +218,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       onClickSubmit={onClickSubmit}
       onClickEdit={onClickEdit}
       //
+      onChangeAddressDetail={onChangeAddressDetail}
       handleOk={handleOk}
       handleCancel={handleCancel}
       onClickSearchAddress={onClickSearchAddress}

@@ -26,7 +26,7 @@ export const Title = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-  width: 400px;
+  width: 550px;
   margin-top: 15px;
   display: flex;
   flex-direction: row;

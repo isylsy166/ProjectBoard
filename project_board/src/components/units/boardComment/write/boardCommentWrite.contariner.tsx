@@ -11,6 +11,7 @@ export default function BoardCommentWrite() {
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
   const [contents, setContents] = useState("");
+  const [star, setStar] = useState(0);
 
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
 
@@ -33,7 +34,7 @@ export default function BoardCommentWrite() {
           writer: writer,
           password: password,
           contents: contents,
-          rating: 0,
+          rating: star,
         },
         boardId: router.query.BoardDetail,
       },
@@ -52,6 +53,7 @@ export default function BoardCommentWrite() {
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
       onClickWrite={onClickWrite}
+      setStar={setStar}
     />
   );
 }

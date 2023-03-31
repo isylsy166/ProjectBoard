@@ -19,16 +19,23 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
           <S.Title>{props.data?.fetchBoard?.title}</S.Title>
           <S.Contents>{props.data?.fetchBoard?.contents}</S.Contents>
         </S.Body>
+        <S.AddressWrapper>
+          <S.Address>{props.data?.fetchBoard.boardAddress?.address}</S.Address>
+          <S.Address>
+            {props.data?.fetchBoard.boardAddress?.addressDetail}
+          </S.Address>
+        </S.AddressWrapper>
       </S.Wrapper>
+
       <S.ButtonWrapper>
-        <S.Button onClick={props.onClickMoveBoardList}>목록으로</S.Button>
-        <S.Button onClick={props.onClickEdit}>수정하기</S.Button>
-        <S.Button
+        <S.Button3 onClick={props.onClickMoveBoardList}>목록으로</S.Button3>
+        <S.Button3 onClick={props.onClickEdit}>수정하기</S.Button3>
+        <S.Button3
           id={props.data?.fetchBoard?._id}
           onClick={props.onClickBoardDelete}
         >
           삭제하기
-        </S.Button>
+        </S.Button3>
       </S.ButtonWrapper>
     </Page>
   );

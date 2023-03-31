@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Button } from "antd";
 
 //Wrapper
 export const Wrapper = styled.div`
@@ -39,9 +40,11 @@ export const Inform = styled.div`
 
 export const Body = styled.div`
   width: 100%;
+  height: 430px;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  padding-bottom: 20px;
 `;
 
 //글자
@@ -74,6 +77,19 @@ export const Contents = styled.div`
   padding-left: 4px;
 `;
 
+export const AddressWrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const Address = styled.div`
+  font-size: 12px;
+  color: gray;
+`;
+
 export const ButtonWrapper = styled.div`
   width: 450px;
   display: flex;
@@ -82,23 +98,6 @@ export const ButtonWrapper = styled.div`
   margin-top: 30px;
 `;
 
-export const Button = styled.button`
+export const Button3 = styled(Button)`
   width: 130px;
-  height: 40px;
-  padding: 10px 25px;
-  border: 2px solid #6495ed;
-  color: #6495ed;
-  font-family: "Lato", sans-serif;
-  font-weight: bold;
-  font-size: 15px;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  transition: all 0.3s ease;
-  :hover {
-    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-      7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
-  }
 `;

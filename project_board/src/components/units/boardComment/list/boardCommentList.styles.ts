@@ -1,5 +1,7 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons/lib/icons";
 import styled from "@emotion/styled";
+import { Modal } from "antd";
+import "antd/dist/reset.css";
 
 export const Wrapper = styled.div`
   width: 680px;
@@ -58,3 +60,7 @@ export const DeleteIcon = styled(DeleteOutlined)`
   margin-right: 10px;
   color: #6495ed;
 `;
+
+export const CommentModal = styled(Modal)``;
+
+export const InputPW = styled.input``;

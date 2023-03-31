@@ -74,7 +74,8 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
 
             <S.AddressWrapper>
               <S.Address value={props.address} />
-              <S.Address></S.Address>
+              <S.Address onChange={props.onChangeAddressDetail}></S.Address>
+              <S.Error>{props.addressError}</S.Error>
             </S.AddressWrapper>
           </S.InputWrapper2>
         </S.SubWrapperRow>

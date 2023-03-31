@@ -1,6 +1,7 @@
 import { from } from "@apollo/client";
 import { Page } from "../../board/write/BoardWrite.styles";
 import * as S from "./boardCommentWrite.styles";
+import { Rate } from "antd";
 
 export default function BoardCommentWriteUI(props) {
   return (
@@ -18,6 +19,7 @@ export default function BoardCommentWriteUI(props) {
             placeholder="Password"
             onChange={props.onChangePassword}
           />
+          <Rate onChange={props.setStar} />
           <S.Button onClick={props.onClickWrite}>등록</S.Button>
         </S.InputWrapper>
 

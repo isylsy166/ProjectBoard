@@ -16,6 +16,7 @@ export interface IBoardWriteUIProps {
   onChangePassword: (e: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
 
   onClickEdit: () => void;
   onClickSubmit: () => void;
@@ -30,8 +31,10 @@ export interface IBoardWriteUIProps {
   passwordError: string;
   titleError: string;
   contentsError: string;
+  addressError: string;
   address: string;
   zonecode: string;
+  addressDetail: string;
 
   data?: Pick<IQuery, "fetchBoard">;
 }
