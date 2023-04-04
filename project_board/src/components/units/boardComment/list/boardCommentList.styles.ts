@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   width: 680px;
   //여백
   margin-bottom: 10px;
-  border-top: 3px solid #6495ed;
+  border-top: 3px solid #ff5c77;
 `;
 
 export const ProfileWrapper = styled.div`
@@ -53,12 +53,12 @@ export const OptionWrapper = styled.div`
 
 export const EditIcon = styled(EditOutlined)`
   margin-right: 12px;
-  color: #6495ed;
+  color: gray;
 `;
 
 export const DeleteIcon = styled(DeleteOutlined)`
   margin-right: 10px;
-  color: #6495ed;
+  color: gray;
 `;
 
 export const CommentModal = styled(Modal)``;

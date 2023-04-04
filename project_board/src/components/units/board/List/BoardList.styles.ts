@@ -12,7 +12,6 @@ export const HeadWrapper = styled.div`
   line-height: 52px;
   border-top: 2px solid gray;
   border-bottom: 2px solid gray;
-  padding-top: 10px;
   padding-bottom: 10px;
 `;
 
@@ -26,7 +25,7 @@ export const Row = styled.div`
   border-bottom: 1px solid gray;
 
   :hover {
-    color: blue;
+    color: #ff5c77;
   }
 `;
 

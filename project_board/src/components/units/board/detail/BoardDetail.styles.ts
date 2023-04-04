@@ -28,7 +28,7 @@ export const Header = styled.div`
   flex-direction: row;
   align-items: center;
   padding-bottom: 23px;
-  border-bottom: 2px solid #6495ed;
+  border-bottom: 2px solid pink;
 `;
 
 export const Inform = styled.div`
@@ -61,7 +61,7 @@ export const Name = styled.div`
 export const Date = styled.div`
   font-size: 17px;
   padding-left: 4px;
-  color: #6495ed;
+  color: pink;
 `;
 
 export const Title = styled.div`
@@ -91,7 +91,7 @@ export const Address = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 450px;
+  width: 460px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -100,4 +100,9 @@ export const ButtonWrapper = styled.div`
 
 export const Button3 = styled(Button)`
   width: 130px;
+  height: 40px;
+  &:hover {
+    color: #ff5c77 !important;
+    border-color: #ff5c77 !important;
+  }
 `;

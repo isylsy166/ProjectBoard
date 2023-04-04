@@ -91,14 +91,12 @@ export const SubmitWrapper = styled.div`
 
 // 글씨이런거
 export const Title = styled.div`
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 36px;
   font-weight: bold;
   padding-bottom: 20px;
 `;
 
 export const Text = styled.div`
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   padding-top: 5px;

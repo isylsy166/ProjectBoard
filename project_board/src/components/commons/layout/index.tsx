@@ -1,14 +1,21 @@
+import styled from "@emotion/styled";
 import Banner from "./banner";
 import Header from "./header";
-import Navigation from "./navigation";
+import Navigation from "./navigation/navigation.container";
 
-export default function Layout(props) {
+interface ILayoutProps {
+  children: JSX.Element;
+}
+
+const Body = styled.div``;
+
+export default function Layout(props: ILayoutProps) {
   return (
     <>
       <Header></Header>
       <Banner></Banner>
       <Navigation></Navigation>
-      <div>{props.children}</div>
+      <Body>{props.children}</Body>
     </>
   );
 }

@@ -12,7 +12,7 @@ export const TitleWrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding-bottom: 13px;
-  border-bottom: 2px solid #6495ed;
+  border-bottom: 2px solid #ff5c77;
 `;
 
 export const Icon = styled.img`
@@ -36,21 +36,25 @@ export const InputWrapper = styled.div`
 export const Input = styled.input`
   width: 140px;
 
-  color: #6495ed;
-  border: 2px solid #6495ed;
+  border: 2px solid #ff5c77;
 `;
 
 export const Button = styled.button`
   width: 90px;
   height: 40px;
   padding: 10px 25px;
-  border: 2px solid #6495ed;
-  color: #6495ed;
+  color: gray;
+  border: 1px solid gray;
+
   font-family: "Lato", sans-serif;
   font-weight: bold;
   font-size: 15px;
   background: transparent;
   cursor: pointer;
+  &:hover {
+    color: #ff5c77;
+    border-color: #ff5c77;
+  }
 `;
 
 export const Contents = styled.textarea`
