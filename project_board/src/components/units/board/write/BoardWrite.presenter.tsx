@@ -52,8 +52,12 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           <S.InputWrapper2>
             <S.Text>주소</S.Text>
             <S.AddressWriter
-              placeholder="43341"
-              value={props.zonecode}
+              readOnly
+              value={
+                props.zonecode ||
+                props.data?.fetchBoard.boardAddress?.zipcode ||
+                ""
+              }
             ></S.AddressWriter>
 
             <S.SearchAddressButton onClick={props.onClickSearchAddress}>
@@ -73,8 +77,19 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             )}
 
             <S.AddressWrapper>
-              <S.Address value={props.address} />
-              <S.Address onChange={props.onChangeAddressDetail}></S.Address>
+              <S.Address
+                value={
+                  props.address ||
+                  props.data?.fetchBoard.boardAddress?.address ||
+                  ""
+                }
+              />
+              <S.Address
+                onChange={props.onChangeAddressDetail}
+                defaultValue={
+                  props.data?.fetchBoard.boardAddress?.addressDetail
+                }
+              ></S.Address>
               <S.Error>{props.addressError}</S.Error>
             </S.AddressWrapper>
           </S.InputWrapper2>

@@ -14,8 +14,8 @@ export interface IBoardCommentListUIProps {
   modal2Open: boolean;
   setModal2Open: boolean;
 
-  onClickDelete: (event: MouseEvent<HTMLImageElement>) => void;
-  onClickDeleteIcon: () => void;
+  onClickDelete: (event: ChangeEvent<HTMLImageElement>) => void;
+  onClickDeleteIcon: (event: MouseEvent<HTMLImageElement>) => void;
   onClickWrapper: (event: ChangeEvent<HTMLDivElement>) => void;
   onCancel: () => void;
 

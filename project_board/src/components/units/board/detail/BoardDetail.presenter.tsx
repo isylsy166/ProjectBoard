@@ -1,3 +1,4 @@
+import { Tooltip } from "antd";
 import { getDate } from "../../../commons/libraries/utils";
 import * as S from "../detail/BoardDetail.styles";
 import { Page } from "../write/BoardWrite.styles";
@@ -20,10 +21,12 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
           <S.Contents>{props.data?.fetchBoard?.contents}</S.Contents>
         </S.Body>
         <S.AddressWrapper>
-          <S.Address>{props.data?.fetchBoard.boardAddress?.address}</S.Address>
-          <S.Address>
-            {props.data?.fetchBoard.boardAddress?.addressDetail}
-          </S.Address>
+          <Tooltip
+            placement="bottom"
+            title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+          >
+            <img src="/images/location.png" />
+          </Tooltip>
         </S.AddressWrapper>
       </S.Wrapper>
 

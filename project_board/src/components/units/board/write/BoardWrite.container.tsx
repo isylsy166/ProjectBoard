@@ -101,7 +101,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   }
 
   // input address
-
   const onCompleteAddressSearch = (data: any) => {
     console.log(data);
     setAddress(data.address);
@@ -114,7 +113,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   };
 
   // Address Modal
-
   const onClickSearchAddress = () => {
     setIsModalOpen(true);
   };
@@ -189,6 +187,13 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
     if (title) updateBoardInput.title = title;
     if (contents) updateBoardInput.contents = contents;
+    if (zonecode || address || addressDetail) {
+      updateBoardInput.boardAddress = {};
+      if (zonecode) updateBoardInput.boardAddress.zipcode = zonecode;
+      if (address) updateBoardInput.boardAddress.address = address;
+      if (addressDetail)
+        updateBoardInput.boardAddress.addressDetail = addressDetail;
+    }
 
     const result = await updateBoard({
       variables: {

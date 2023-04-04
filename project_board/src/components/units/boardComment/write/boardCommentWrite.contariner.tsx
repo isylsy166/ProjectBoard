@@ -54,6 +54,7 @@ export default function BoardCommentWrite() {
       onChangeContents={onChangeContents}
       onClickWrite={onClickWrite}
       setStar={setStar}
+      writer={writer}
     />
   );
 }

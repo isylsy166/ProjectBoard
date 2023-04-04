@@ -1,6 +1,6 @@
 import { ChangeEvent, MouseEventHandler } from "react";
 import { Address } from "react-daum-postcode/lib/loadPostcode";
-import { IQuery } from "../../../../commons/types/types";
+import { IBoardAddress, IQuery } from "../../../../commons/types/types";
 
 export interface IBoardWriteProps {
   isEdit: boolean;
@@ -42,4 +42,9 @@ export interface IBoardWriteUIProps {
 export interface IUpdateBoardInput {
   title?: string;
   contents?: string;
+  boardAddress?: {
+    zipcode?: string;
+    address?: string;
+    addressDetail?: string;
+  };
 }

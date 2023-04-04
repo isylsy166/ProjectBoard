@@ -20,7 +20,7 @@ export default function BoardDetail(props: IBoardDetailProps) {
 
   //목록으로
   const onClickMoveBoardList = () => {
-    router.push("/boards/BoardList");
+    router.push("/");
   };
 
   //수정하기

@@ -26,6 +26,7 @@ export default function BoardCommentList(props: IBoardCommentListProps) {
     variables: { boardId: String(router.query.BoardDetail) },
   });
 
+  // 삭제 아이콘
   const onClickDeleteIcon = (event: MouseEvent<HTMLImageElement>) => {
     setModal2Open(true);
     setMyBoardCommentId(event.currentTarget.id);
@@ -35,7 +36,8 @@ export default function BoardCommentList(props: IBoardCommentListProps) {
     setModal2Open(false);
   };
 
-  const onClickDelete = async (event: MouseEvent<HTMLImageElement>) => {
+  // OK버튼
+  const onClickDelete = async (event: ChangeEvent<HTMLImageElement>) => {
     try {
       await deleteBoardComment({
         variables: {
@@ -60,7 +62,7 @@ export default function BoardCommentList(props: IBoardCommentListProps) {
   };
 
   const onChangeModalInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setMyPassword(event.target.value);
+    setMyPassword(event.currentTarget.value);
   };
 
   return (

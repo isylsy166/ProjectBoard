@@ -13,7 +13,11 @@ export default function BoardCommentWriteUI(props) {
         </S.TitleWrapper>
 
         <S.InputWrapper>
-          <S.Input placeholder="Name" onChange={props.onChangeWriter} />
+          <S.Input
+            placeholder="Name"
+            onChange={props.onChangeWriter}
+            value={props.writer}
+          />
           <S.Input
             type="password"
             placeholder="Password"
