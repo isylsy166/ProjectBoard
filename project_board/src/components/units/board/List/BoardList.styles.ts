@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Pagination } from "antd";
 
 export const Wrapper = styled.div`
   width: 1100px;
@@ -77,8 +78,8 @@ export const Title = styled.div`
 //버튼
 export const ButtonWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 23px;
 `;
 

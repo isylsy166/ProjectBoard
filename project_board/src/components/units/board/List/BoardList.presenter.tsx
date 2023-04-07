@@ -1,6 +1,7 @@
 import * as L from "../List/BoardList.styles";
 import { getDate } from "../../../commons/libraries/utils";
 import { Page } from "../write/BoardWrite.styles";
+import Pagination01 from "../../../commons/pagination/01/Pagination01.container";
 import { IBoardListUIProps } from "./BoardList.types";
 
 export default function BoardListUI(props: IBoardListUIProps) {
@@ -30,6 +31,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
           );
         })}
         <L.ButtonWrapper>
+          <Pagination01 refetch={props.refetch} count={props.count} />
           <L.Button onClick={props.onClickMoveBoardWrite}>
             게시글 등록하기 <L.PencilIcon src="/images/write.png" />
           </L.Button>

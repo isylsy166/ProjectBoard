@@ -26,17 +26,17 @@ export default function BoardDetail(props: IBoardDetailProps) {
   //수정하기
   const onClickEdit = () => {
     // router.push(`/boards/${router.query}/BoardEdit`);
-    router.push(`/boards/${data.fetchBoard._id}/BoardEdit`);
+    router.push(`/boards/${data?.fetchBoard._id}/BoardEdit`);
   };
 
   //삭제하기
   const onClickBoardDelete = async (event) => {
     await deleteBoard({
-      variables: { boardId: event.target.id },
+      variables: { boardId: event.currentTarget.id },
       refetchQueries: [{ query: FETCH_BOARD }],
     });
     alert("게시글이 삭제되었습니다.");
-    router.push("/boards/BoardList");
+    router.push("/");
   };
 
   return (

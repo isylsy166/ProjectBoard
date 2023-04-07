@@ -57,7 +57,7 @@ export default function Header() {
   };
   return (
     <Wrapper>
-      <TitleText onClick={onClickTitle}>Soyeon's Portfolio Board</TitleText>
+      <TitleText onClick={onClickTitle}>Soyeon's Project Board</TitleText>
       <EnjoyWrapper>
         <ButtonLogin>로그인</ButtonLogin>
         <ButtonEnjoy type="primary">회원가입</ButtonEnjoy>

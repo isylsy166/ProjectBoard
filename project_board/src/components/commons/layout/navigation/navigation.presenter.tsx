@@ -4,8 +4,8 @@ import { INavigationUIProps } from "./navigation.types";
 
 const NAVIGATION_MENUS = [
   { name: "게시판", page: "/" },
-  { name: "라이브상품", page: "/" },
-  { name: "마이페이지", page: "/" },
+  { name: "상품", page: "/market" },
+  { name: "마이페이지", page: "/mypage" },
 ];
 
 export default function NavigationUI(props: INavigationUIProps) {

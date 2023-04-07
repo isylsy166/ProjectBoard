@@ -1,14 +1,26 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import BoardListUI from "./BoardList.presenter";
-import { FETCH_BOARDS } from "./BoardList.queries";
+import { FETCH_BOARDS, FETCH_BOARD_COUNT } from "./BoardList.queries";
 import { MouseEvent } from "react";
-import { IBoardListProps } from "./BoardList.types";
+import {
+  IQuery,
+  IQueryFetchBoardsArgs,
+  IQueryFetchBoardsCountArgs,
+} from "../../../../commons/types/types";
 
-export default function BoardList(props: IBoardListProps) {
+export default function BoardList(props) {
   //게시글 가져오기
-  const { data } = useQuery(FETCH_BOARDS);
-  //console.log(data?.fetchBoards);
+  const { data, refetch } = useQuery<
+    Pick<IQuery, "fetchBoards">,
+    IQueryFetchBoardsArgs
+  >(FETCH_BOARDS);
+
+  // 게시글 개수
+  const { data: boardCount } = useQuery<
+    Pick<IQuery, "fetchBoardsCount">,
+    IQueryFetchBoardsCountArgs
+  >(FETCH_BOARD_COUNT);
 
   //페이지 이동
   const router = useRouter();
@@ -24,6 +36,8 @@ export default function BoardList(props: IBoardListProps) {
   return (
     <BoardListUI
       data={data}
+      refetch={refetch}
+      count={boardCount?.fetchBoardsCount} // 전체 게시글 개수
       onClickMoveBoardWrite={onClickMoveBoardWrite}
       onClickMoveBoardDetail={onClickMoveBoardDetail}
     />
