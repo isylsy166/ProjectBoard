@@ -7,6 +7,6 @@
 - 댓글 작성, 삭제, 별점
 
 ### 개발환경
-Next.js
-TypeScript
-GraphQL
+- Next.js
+- TypeScript
+- GraphQL
